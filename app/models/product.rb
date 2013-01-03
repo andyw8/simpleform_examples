@@ -9,7 +9,4 @@ class Product < ActiveRecord::Base
 
   has_many :product_categories
   has_many :categories, through: :product_categories
-
-  # TODO check if this is necessary
-  accepts_nested_attributes_for :product_categories
 end
