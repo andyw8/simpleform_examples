@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
   validates :color_scheme, presence: true
 
   belongs_to :color_scheme
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories
 end

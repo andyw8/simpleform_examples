@@ -10,6 +10,12 @@
   <%= @product.description %>
 </p>
 
+<p>
+  <b>Categories:</b>
+  <%= @product.categories.map(&:name).join(', ') %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
