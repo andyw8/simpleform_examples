@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params[:product])
+    @product = Product.new(product_params)
 
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
 
-    if @product.update_attributes(params[:product])
+    if @product.update_attributes(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
       render action: "edit"
@@ -40,5 +40,11 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to products_url
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :description)
   end
 end

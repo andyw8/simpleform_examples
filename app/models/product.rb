@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :name
+  include ActiveModel::ForbiddenAttributesProtection
 
   validates :name, presence: true
   validates :description, presence: true
