@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.association :color_scheme %>
-    <%= f.association :categories %>
+    <%= f.association :categories, as: :check_boxes %>
   </div>
 
   <div class="form-actions">
